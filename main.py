@@ -115,10 +115,11 @@ def main():
     sigma_human = st.sidebar.slider(
         "Sigma",
         min_value=float(policy.MIN_SIGMA)/1e18,
-        max_value=float(policy.MAX_SIGMA)/1e18,
+        max_value=float(policy.MAX_SIGMA)/1e19,
         value=2e-2,
-        format="%.2f",
-        help="Volatility parameter that determines how aggressively rates change in response to price deviations from peg."
+        format="%.3f",
+        step=0.001,
+        help="Volatility parameter that determines how aggressively rates change in response to price deviations from peg. Input ranges from 0 to 10%."
     )
     
     # Base rate

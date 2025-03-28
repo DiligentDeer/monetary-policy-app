@@ -83,9 +83,6 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-def create_parameter_tooltip(title, description):
-    return f"{title} ❓\n\n{description}"
-
 def main():
     st.title("crvUSD Monetary Policy Simulator")
     
@@ -216,7 +213,21 @@ def main():
             x=prices_human,
             y=annual_rates_by_price,
             line=dict(color=COLORS['primary'], width=2),
-            name="Annual Rate"
+            name="Annual Rate",
+            hovertemplate=(
+                "<b>Oracle Price:</b> %{x:.3f}<br>" +
+                "<b>Annual Rate:</b> %{y:.2f}%<br>" +
+                "<extra></extra>"  # This removes the trace name from hover
+            ),
+            hoverlabel=dict(
+                bgcolor='#1e1e1e',  # Dark background for hover label
+                bordercolor='#6ac69b',  # Border color matching the line
+                font=dict(
+                    family="Courier New, monospace",
+                    size=12,
+                    color='#ffffff'
+                )
+            )
         ),
         row=1, col=1
     )
@@ -235,7 +246,21 @@ def main():
             x=utilizations_human,
             y=annual_rates_by_util,
             line=dict(color=COLORS['secondary'], width=2),
-            name="Annual Rate"
+            name="Annual Rate",
+            hovertemplate=(
+                "<b>Utilization:</b> %{x:.2f}%<br>" +
+                "<b>Annual Rate:</b> %{y:.2f}%<br>" +
+                "<extra></extra>"  # This removes the trace name from hover
+            ),
+            hoverlabel=dict(
+                bgcolor='#1e1e1e',  # Dark background for hover label
+                bordercolor='#6ac69b',  # Border color matching the line
+                font=dict(
+                    family="Courier New, monospace",
+                    size=12,
+                    color='#ffffff'
+                )
+            )
         ),
         row=1, col=2
     )

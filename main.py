@@ -116,7 +116,7 @@ def main():
         "Sigma",
         min_value=float(policy.MIN_SIGMA)/1e18,
         max_value=float(policy.MAX_SIGMA)/1e19,
-        value=2e-2,
+        value=0.007,
         format="%.3f",
         step=0.001,
         help="Volatility parameter that determines how aggressively rates change in response to price deviations from peg. Input ranges from 0 to 10%."

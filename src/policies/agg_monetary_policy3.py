@@ -41,7 +41,7 @@ class AggMonetaryPolicy3(BaseMonetaryPolicy):
         Implementation of the contract's calculate_rate logic
         """
         price = kwargs.get('price', 10**18)  # default to 1.0
-        sigma = kwargs.get('sigma', 2 * 10**16)
+        sigma = kwargs.get('sigma', 0.007)
         rate0 = kwargs.get('rate0', 0)
         target_debt_fraction = kwargs.get('target_debt_fraction', 10**17)
         debt_for = kwargs.get('debt_for', 0)

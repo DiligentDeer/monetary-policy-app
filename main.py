@@ -104,10 +104,10 @@ def main():
     # Oracle Price
     oracle_price = st.sidebar.slider(
         "Oracle Price",
-        min_value=0.5,
-        max_value=1.5,
+        min_value=0.75,
+        max_value=1.25,
         value=1.0,
-        step=0.1,
+        step=0.0025,
         help="The current price of crvUSD relative to the peg (1.0). Values below 1.0 indicate the token is trading below peg."
     )
     

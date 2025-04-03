@@ -97,20 +97,9 @@ def main():
     
     policy = policies[selected_policy_name]
     
-    # Move parameters to sidebar with tooltips
+    # Policy Parameters section
     st.sidebar.header("Policy Parameters")
-    params = {}
-    
-    # Oracle Price
-    oracle_price = st.sidebar.slider(
-        "Oracle Price",
-        min_value=0.75,
-        max_value=1.25,
-        value=1.0,
-        step=0.0025,
-        help="The current price of crvUSD relative to the peg (1.0). Values below 1.0 indicate the token is trading below peg."
-    )
-    
+
     # Sigma
     sigma_human = st.sidebar.slider(
         "Sigma",
@@ -121,7 +110,7 @@ def main():
         step=0.001,
         help="Volatility parameter that determines how aggressively rates change in response to price deviations from peg. Input ranges from 0 to 10%."
     )
-    
+
     # Base rate
     base_rate_annual = st.sidebar.slider(
         "Base Rate (Annual %)",
@@ -130,7 +119,7 @@ def main():
         value=10,
         help="The baseline interest rate when price is at peg and other factors are neutral."
     )
-    
+
     # Target debt fraction
     target_fraction = st.sidebar.slider(
         "Target Debt Fraction (%)",
@@ -139,7 +128,21 @@ def main():
         value=10,
         help="Target ratio for PegKeeper debt relative to total debt."
     )
-    
+
+    # Market State section
+    st.sidebar.header("Market State")
+
+    # Oracle Price
+    oracle_price = st.sidebar.slider(
+        "Oracle Price",
+        min_value=0.7500,
+        max_value=1.2500,
+        value=1.0000,
+        format="%.4f",
+        step=0.0025,
+        help="The current price of crvUSD relative to the peg (1.0). Values below 1.0 indicate the token is trading below peg."
+    )
+
     # Debt Fraction
     debt_fraction = st.sidebar.slider(
         "Debt Fraction (%)",
@@ -148,7 +151,7 @@ def main():
         value=0,
         help="Current ratio of PegKeeper debt to total debt."
     )
-    
+
     # Market Utilization
     utilization = st.sidebar.slider(
         "Market Utilization (%)",
@@ -195,7 +198,7 @@ def main():
         rows=1, cols=2,
         subplot_titles=(
             f"Annual Rate vs Oracle Price (Utilization: {utilization:.1f}%)",
-            f"Annual Rate vs Utilization (Oracle Price: {oracle_price:.2f})"
+            f"Annual Rate vs Utilization (Oracle Price: {oracle_price:.3f})"
         ),
         horizontal_spacing=0.1
     )
@@ -329,10 +332,10 @@ def main():
         calc_price = st.number_input(
             "Oracle Price:",
             value=oracle_price,
-            min_value=0.5,
-            max_value=1.5,
-            step=0.1,
-            format="%.1f"
+            min_value=0.7500,
+            max_value=1.2500,
+            step=0.0025,
+            format="%.4f"
         )
     
     with col2:

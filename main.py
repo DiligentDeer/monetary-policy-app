@@ -136,7 +136,7 @@ def main():
         "Target Debt Fraction (%)",
         min_value=0,
         max_value=100,
-        value=50,
+        value=10,
         help="Target ratio for PegKeeper debt relative to total debt."
     )
     

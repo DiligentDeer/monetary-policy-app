@@ -145,7 +145,7 @@ def main():
         "Debt Fraction (%)",
         min_value=0,
         max_value=100,
-        value=10,
+        value=0,
         help="Current ratio of PegKeeper debt to total debt."
     )
     

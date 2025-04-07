@@ -135,8 +135,8 @@ def main():
     # Oracle Price
     oracle_price = st.sidebar.slider(
         "Oracle Price",
-        min_value=0.7500,
-        max_value=1.2500,
+        min_value=0.9,
+        max_value=1.1,
         value=1.0000,
         format="%.4f",
         step=0.0025,
